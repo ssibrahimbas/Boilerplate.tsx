@@ -4,29 +4,15 @@ stages:
 lint:
     stage: clean
     image: node:latest
-    rules:
-      - if: $CI_COMMIT_BRANCH
-    variables:
-      LINT_COMMIT_MESSAGE: "lint: fix linting errors"
-    before_script:
-      - yarn install --frozen-lockfile --prefer-offline --cache-folder .yarn
-      - echo "Linting..."
-      - yarn lint
-      - echo "Linting done."
-      - echo "Checking if there are any linting errors..."
-      -
-        if GIT_CHANGES=$(git status --porcelain) && [ -n "$GIT_CHANGES" ]; then
-          echo "Linting errors found. Committing changes..."
-          git config --global user.email "gitlab-ci@localhost"
-          git config --global user.name "GitLab CI"
-          git add .
-          git commit -m "$LINT_COMMIT_MESSAGE"
-          echo "Changes committed."
-        else
-          echo "No linting errors found."
-        fi
-    artifacts:
-      expire_in: 1 day
-      reports:
-        dotenv:
-          - build.env
+    script:
+      - npm install -g eslint \
+          eslint-plugin-react \
+          eslint-config-prettier \
+            eslint-plugin-prettier \
+            eslint-plugin-react-hooks \ 
+            eslint-plugin-simple-import-sort \
+            @typescript-eslint/eslint-plugin \
+            @typescript-eslint/parser \
+            prettier
+      - eslint --version
+      - eslint ./ --ext .js,.jsx,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore
