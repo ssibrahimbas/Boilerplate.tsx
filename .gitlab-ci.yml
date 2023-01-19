@@ -1,7 +1,9 @@
 stages:
   - clean
 
-include: ".eslintrc.yml"
+include:
+  project: '$CI_PROJECT_PATH'
+  file: ".eslintrc.yml"
 
 lint:
     stage: clean
