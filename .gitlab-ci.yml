@@ -1,13 +1,14 @@
 stages:
   - clean
 
-include:
-  project: '$CI_PROJECT_PATH'
-  file: ".eslintrc.yml"
-
 lint:
     stage: clean
     image: node:latest
+    cache:
+        key: "$CI_COMMIT_REF_SLUG"
+        paths:
+            - node_modules/
+            - .eslintrc.yml
     script:
       - npm install
       - npm run lint:check
