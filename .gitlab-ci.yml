@@ -1,10 +1,11 @@
 stages:
   - clean
 
+include: ".eslintrc.yml"
+
 lint:
     stage: clean
     image: node:latest
     script:
-      - npm uninstall eslint --global
       - npm install
       - npm run lint:check
