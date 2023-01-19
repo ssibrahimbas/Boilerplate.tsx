@@ -8,10 +8,11 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"lint": "eslint ./ --ext .js,.jsx,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --fix",
-		"lint:check": "eslint ./ --ext .js,.jsx,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+		"lint:check": "eslint -c .eslintrc.yml ./ --ext .js,.jsx,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"i18next": "^22.4.9",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.7.0"
