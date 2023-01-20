@@ -7,6 +7,7 @@
 	"bracketSpacing": true,
 	"arrowParens": "always",
 	"jsxSingleQuote": false,
+	"jsxIgnoreLineBreaks": false,
 	"htmlWhitespaceSensitivity": "ignore",
 	"vueIndentScriptAndStyle": false
 }

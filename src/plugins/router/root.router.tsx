@@ -1,4 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { exampleRoutes } from '../../domains/example/router/example.router'
 
-export const router = createBrowserRouter([...exampleRoutes])
+import { defaultRoutes } from '~default/router/default.router'
+import { exampleRoutes } from '~example/router/example.router'
+
+export const router = createBrowserRouter([...defaultRoutes, ...exampleRoutes])

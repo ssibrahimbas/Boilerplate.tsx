@@ -1,18 +1,21 @@
+import './index.css'
+import '~plugins/i18n/i18n'
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import './plugins/i18n/i18n'
 import { Provider as ReduxProvider } from 'react-redux'
-import store from './plugins/store/root.store'
 import { RouterProvider } from 'react-router-dom'
-import { router } from './plugins/router/root.router'
+
+import RootFallback from '~components/loaders/RootFallback'
+import { router } from '~plugins/router/root.router'
+import store from '~plugins/store/root.store'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		{' '}
 		<ReduxProvider store={store}>
 			{' '}
-			<RouterProvider router={router} />{' '}
+			<RouterProvider router={router} fallbackElement={<RootFallback />} />{' '}
 		</ReduxProvider>{' '}
 	</React.StrictMode>
 )

@@ -2,13 +2,13 @@ stages:
   - clean
 
 lint:
-    stage: clean
-    image: node:latest
-    cache:
-        key: "$CI_COMMIT_REF_SLUG"
-        paths:
-            - node_modules/
-            - .eslintrc.yml
-    script:
-      - npm install
-      - npm run lint:check
+  stage: clean
+  image: node:latest
+  cache:
+    key: '$CI_COMMIT_REF_SLUG'
+    paths:
+      - node_modules/
+      - .eslintrc.yml
+  script:
+    - npm install
+    - npm run lint:check
