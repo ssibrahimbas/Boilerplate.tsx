@@ -21,7 +21,8 @@
 			"~components/*": ["./src/components/*"],
 			"~default/*": ["./src/domains/default/*"],
 			"~example/*": ["./src/domains/example/*"],
-			"~plugins/*": ["./src/plugins/*"]
+			"~plugins/*": ["./src/plugins/*"],
+			"~hooks/*": ["./src/hooks/*"]
 		}
 	},
 	"include": ["src"],

@@ -12,6 +12,7 @@ export default defineConfig({
 			'~default': '/src/domains/default',
 			'~example': '/src/domains/example',
 			'~plugins': '/src/plugins',
+			'~hooks': '/src/hooks',
 		},
 		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 	},
