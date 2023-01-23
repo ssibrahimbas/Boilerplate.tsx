@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import NumberInput from '~components/form/input/NumberInput'
+import SelectInput from '~components/form/input/SelectInput'
 import TextInput from '~components/form/input/TextInput'
 import Spin from '~components/spin/Spin'
 import { SpinColor } from '~components/spin/Spin.types'
@@ -22,6 +23,8 @@ const ExamplePage = () => {
 		console.log(value)
 		setNumber(value)
 	}
+
+	const [selected, setSelected] = useState<string>('')
 
 	const [data, setData] = useState<TodoItem>({
 		completed: false,
@@ -44,7 +47,20 @@ const ExamplePage = () => {
 						{t('button')}
 					</button>{' '}
 					<TextInput /> <br />{' '}
-					<NumberInput value={number} onChange={onChange} step={3} />
+					<NumberInput value={number} onChange={onChange} step={3} /> <br />{' '}
+					<SelectInput
+						value={selected}
+						defaultSelected={'Lütfen seçiniz'}
+						options={[
+							{ label: 'test', value: 'test' },
+							{
+								label: 'test2',
+								value: 'test2',
+							},
+						]}
+						multiple={true}
+						onChange={(value) => setSelected(value)}
+					/>
 				</div>
 			</Spin>
 		</div>

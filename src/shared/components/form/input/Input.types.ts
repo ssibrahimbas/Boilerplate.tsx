@@ -17,6 +17,13 @@ export type NumberInputValidation = {
 	step?: number
 }
 
+export type SelectInputValidation = {
+	required?: boolean
+	min?: number
+	max?: number
+	multiple?: boolean
+}
+
 export type FormItemProps = {
 	label?: string
 	children?: React.ReactNode
@@ -36,4 +43,13 @@ export type NumberInputProps = InputSeo &
 		pattern?: string
 		incrementButton?: boolean
 		decrementButton?: boolean
+	}
+
+export type SelectInputProps = InputSeo &
+	SelectInputValidation &
+	BaseInput & {
+		value?: string
+		onChange?: (value: string) => void
+		options: { value: string; label: string }[]
+		defaultSelected?: string
 	}
