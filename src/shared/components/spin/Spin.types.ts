@@ -17,12 +17,3 @@ export type SpinProps = {
 	blur?: boolean
 	children?: React.ReactNode
 }
-
-export type SpinVariants = {
-	size?: {
-		[key in SpinSize]: string | string[]
-	}
-	color?: {
-		[key in SpinColor]: string | string[]
-	}
-}

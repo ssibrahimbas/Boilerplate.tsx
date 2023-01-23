@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import NumberInput from '~components/form/input/NumberInput'
-import RadioGroup from '~components/form/input/RadioGroup'
-import SelectInput from '~components/form/input/SelectInput'
-import TextInput from '~components/form/input/TextInput'
 import Spin from '~components/spin/Spin'
 import { SpinColor } from '~components/spin/Spin.types'
 import { useGet } from '~hooks/http/request'
@@ -18,22 +14,7 @@ type TodoItem = {
 
 const ExamplePage = () => {
 	const { t } = useTranslation('example')
-	const [number, setNumber] = useState<number>(0)
-	const [radio, setRadio] = useState<string[]>([])
 
-	const onChange = (value: number) => {
-		console.log(value)
-		setNumber(value)
-	}
-
-	const [selected, setSelected] = useState<string>('')
-
-	const [data, setData] = useState<TodoItem>({
-		completed: false,
-		id: 0,
-		title: '',
-		userId: 0,
-	})
 	const [loading, request, error] = useGet<TodoItem>(
 		'https://jsonplaceholder.typicode.com/todos/1'
 	)
@@ -42,42 +23,6 @@ const ExamplePage = () => {
 		<div className="w-60 h-60">
 			<Spin loading={loading} color={SpinColor.Primary}>
 				<h1>{t('title')}</h1> {error && <p>{error.message}</p>}
-				<div>
-					{' '}
-					<p>Small Primary</p>{' '}
-					<button onClick={() => request(setData)} disabled={loading}>
-						{t('button')}
-					</button>{' '}
-					<TextInput /> <br />{' '}
-					<NumberInput value={number} onChange={onChange} step={3} /> <br />{' '}
-					<SelectInput
-						value={selected}
-						defaultSelected={'Lütfen seçiniz'}
-						options={[
-							{ label: 'test', value: 'test' },
-							{
-								label: 'test2',
-								value: 'test2',
-							},
-						]}
-						multiple={true}
-						onChange={(value) => setSelected(value)}
-					/>{' '}
-					<RadioGroup
-						items={[
-							{
-								label: 'test',
-								value: 'test',
-							},
-							{
-								label: 'test2',
-								value: 'test2',
-							},
-						]}
-						value={radio}
-						onToggle={(value) => setRadio([...radio, value])}
-					/>
-				</div>
 			</Spin>
 		</div>
 	)
