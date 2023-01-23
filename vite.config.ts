@@ -11,6 +11,7 @@ export default defineConfig({
 			'~components': '/src/shared/components',
 			'~default': '/src/domains/default',
 			'~example': '/src/domains/example',
+			'~theme': '/src/domains/theme',
 			'~plugins': '/src/plugins',
 			'~hooks': '/src/shared/hooks',
 		},

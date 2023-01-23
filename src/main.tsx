@@ -8,14 +8,21 @@ import { RouterProvider } from 'react-router-dom'
 
 import RootFallback from '~components/loaders/RootFallback'
 import { router } from '~plugins/router/root.router'
-import store from '~plugins/store/root.store'
+import { store } from '~plugins/store/root.store'
+import ThemeProvider from '~theme/providers/ThemeProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		{' '}
 		<ReduxProvider store={store}>
 			{' '}
-			<RouterProvider router={router} fallbackElement={<RootFallback />} />{' '}
+			<ThemeProvider>
+				{' '}
+				<RouterProvider
+					router={router}
+					fallbackElement={<RootFallback />}
+				/>{' '}
+			</ThemeProvider>{' '}
 		</ReduxProvider>{' '}
 	</React.StrictMode>
 )

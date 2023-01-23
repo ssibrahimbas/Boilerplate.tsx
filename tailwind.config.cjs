@@ -3,6 +3,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	content : [ './index.html', './src/**/*.{js,ts,jsx,tsx}' ],
+	mode : 'jit',
+	purge : [
+		'./node_modules/@vechaiui/**/*.{js,ts,jsx,tsx}'
+	],
+	darkMode : 'class',
 	theme : {
 		extend : {
 			colors : {
@@ -78,5 +83,8 @@ module.exports = {
 			}
 		}
 	},
-	plugins : []
+	plugins : [
+		require('@tailwindcss/forms'),
+		require('@vechaiui/core')
+	]
 }

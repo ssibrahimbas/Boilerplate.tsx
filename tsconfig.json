@@ -35,6 +35,9 @@
       "~example/*": [
         "./src/domains/example/*"
       ],
+      "~theme/*": [
+        "./src/domains/theme/*"
+      ],
       "~plugins/*": [
         "./src/plugins/*"
       ],
