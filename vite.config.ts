@@ -8,11 +8,11 @@ export default defineConfig({
 		alias: {
 			'~': '/src',
 			'~domains': '/src/domains',
-			'~components': '/src/components',
+			'~components': '/src/shared/components',
 			'~default': '/src/domains/default',
 			'~example': '/src/domains/example',
 			'~plugins': '/src/plugins',
-			'~hooks': '/src/hooks',
+			'~hooks': '/src/shared/hooks',
 		},
 		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 	},
