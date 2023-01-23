@@ -53,3 +53,14 @@ export type SelectInputProps = InputSeo &
 		options: { value: string; label: string }[]
 		defaultSelected?: string
 	}
+
+export type RadioGroupItem = {
+	label: string
+	value: string
+}
+
+export type RadioGroupProps = {
+	items: RadioGroupItem[]
+	value: string[]
+	onToggle: (value: string) => void
+}

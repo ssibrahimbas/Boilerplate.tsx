@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import NumberInput from '~components/form/input/NumberInput'
+import RadioGroup from '~components/form/input/RadioGroup'
 import SelectInput from '~components/form/input/SelectInput'
 import TextInput from '~components/form/input/TextInput'
 import Spin from '~components/spin/Spin'
@@ -18,6 +19,7 @@ type TodoItem = {
 const ExamplePage = () => {
 	const { t } = useTranslation('example')
 	const [number, setNumber] = useState<number>(0)
+	const [radio, setRadio] = useState<string[]>([])
 
 	const onChange = (value: number) => {
 		console.log(value)
@@ -60,6 +62,20 @@ const ExamplePage = () => {
 						]}
 						multiple={true}
 						onChange={(value) => setSelected(value)}
+					/>{' '}
+					<RadioGroup
+						items={[
+							{
+								label: 'test',
+								value: 'test',
+							},
+							{
+								label: 'test2',
+								value: 'test2',
+							},
+						]}
+						value={radio}
+						onToggle={(value) => setRadio([...radio, value])}
 					/>
 				</div>
 			</Spin>
