@@ -3,11 +3,18 @@ export type InputSeo = {
 	ariaLabelledBy?: string
 	ariaDescribedBy?: string
 	autoComplete?: string
-}
-
-export type TextInputSeo = InputSeo & {
 	name?: string
 	id?: string
+}
+
+export type BaseInput = {
+	placeholder?: string
+}
+
+export type NumberInputValidation = {
+	min?: number
+	max?: number
+	step?: number
 }
 
 export type FormItemProps = {
@@ -15,8 +22,18 @@ export type FormItemProps = {
 	children?: React.ReactNode
 }
 
-export type TextInputProps = TextInputSeo & {
-	placeholder?: string
-	value?: string
-	onChange?: (value: string) => void
-}
+export type TextInputProps = InputSeo &
+	BaseInput & {
+		value?: string
+		onChange?: (value: string) => void
+	}
+
+export type NumberInputProps = InputSeo &
+	BaseInput &
+	NumberInputValidation & {
+		value: number
+		onChange: (value: number) => void
+		pattern?: string
+		incrementButton?: boolean
+		decrementButton?: boolean
+	}

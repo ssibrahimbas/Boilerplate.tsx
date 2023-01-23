@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import NumberInput from '~components/form/input/NumberInput'
 import TextInput from '~components/form/input/TextInput'
 import Spin from '~components/spin/Spin'
 import { SpinColor } from '~components/spin/Spin.types'
@@ -15,6 +16,12 @@ type TodoItem = {
 
 const ExamplePage = () => {
 	const { t } = useTranslation('example')
+	const [number, setNumber] = useState<number>(0)
+
+	const onChange = (value: number) => {
+		console.log(value)
+		setNumber(value)
+	}
 
 	const [data, setData] = useState<TodoItem>({
 		completed: false,
@@ -36,7 +43,8 @@ const ExamplePage = () => {
 					<button onClick={() => request(setData)} disabled={loading}>
 						{t('button')}
 					</button>{' '}
-					<TextInput />
+					<TextInput /> <br />{' '}
+					<NumberInput value={number} onChange={onChange} step={3} />
 				</div>
 			</Spin>
 		</div>

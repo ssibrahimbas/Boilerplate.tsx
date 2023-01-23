@@ -7,7 +7,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
   - plugin:react-hooks/recommended
-overrides: []
+overrides: [ ]
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
@@ -32,5 +32,6 @@ rules:
   jsx-quotes:
     - error
     - prefer-double
+
   simple-import-sort/imports: error
   simple-import-sort/exports: error
