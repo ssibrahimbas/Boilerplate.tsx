@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import TextInput from '~components/form/input/TextInput'
 import Spin from '~components/spin/Spin'
 import { SpinColor } from '~components/spin/Spin.types'
 import { useGet } from '~hooks/http/request'
@@ -14,7 +15,6 @@ type TodoItem = {
 
 const ExamplePage = () => {
 	const { t } = useTranslation('example')
-	const [load, setLoad] = useState(true)
 
 	const [data, setData] = useState<TodoItem>({
 		completed: false,
@@ -28,7 +28,7 @@ const ExamplePage = () => {
 
 	return (
 		<div className="w-60 h-60">
-			<Spin loading={load} color={SpinColor.Primary}>
+			<Spin loading={loading} color={SpinColor.Primary}>
 				<h1>{t('title')}</h1> {error && <p>{error.message}</p>}
 				<div>
 					{' '}
@@ -36,6 +36,7 @@ const ExamplePage = () => {
 					<button onClick={() => request(setData)} disabled={loading}>
 						{t('button')}
 					</button>{' '}
+					<TextInput />
 				</div>
 			</Spin>
 		</div>
