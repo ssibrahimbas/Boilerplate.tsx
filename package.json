@@ -12,7 +12,8 @@
 		"format": "prettier --write .",
 		"test": "cypress run",
 		"test:open": "cypress open",
-		"test:coverage": "cypress run --config video=false --env coverage=true"
+		"test:coverage": "cypress run --config video=false --env coverage=true",
+		"test:component": "cypress run --config video=false --component"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.7",
