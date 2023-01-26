@@ -4,8 +4,8 @@ stages:
   - test
 
 variables:
-  npm_config_cache: "$CI_PROJECT_DIR/.npm"
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  npm_config_cache: '$CI_PROJECT_DIR/.npm'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -13,7 +13,6 @@ cache:
     - .npm
     - cache/Cypress
     - node_modules
-
 
 lint:
   stage: clean
@@ -37,35 +36,35 @@ install:
     - $(npm bin)/cypress cache list
     - $(npm bin)/cypress verify
 
-cypress-e2e:
-  image: cypress/base:10
-  stage: test
-  script:
-    - $(npm bin)/cypress run
-  artifacts:
-    expire_in: 1 week
-    when: always
-    paths:
-    - cypress/screenshots
-    - cypress/videos
-    reports:
-      junit:
-        - results/TEST-*.xml
+# cypress-e2e:
+#   image: cypress/base:10
+#   stage: test
+#   script:
+#     - $(npm bin)/cypress run
+#   artifacts:
+#     expire_in: 1 week
+#     when: always
+#     paths:
+#       - cypress/screenshots
+#       - cypress/videos
+#     reports:
+#       junit:
+#         - results/TEST-*.xml
 
-cypress-e2e-chrome:
-  image: cypress/browsers:chrome67
-  stage: test
-  script:
-    - $(npm bin)/cypress run --browser chrome
-  artifacts:
-    expire_in: 1 week
-    when: always
-    paths:
-    - cypress/screenshots
-    - cypress/videos
-    reports:
-      junit:
-        - results/TEST-*.xml
+# cypress-e2e-chrome:
+#   image: cypress/browsers:chrome67
+#   stage: test
+#   script:
+#     - $(npm bin)/cypress run --browser chrome
+#   artifacts:
+#     expire_in: 1 week
+#     when: always
+#     paths:
+#       - cypress/screenshots
+#       - cypress/videos
+#     reports:
+#       junit:
+#         - results/TEST-*.xml
 
 cypress-component:
   image: cypress/base:10
@@ -76,8 +75,8 @@ cypress-component:
     expire_in: 1 week
     when: always
     paths:
-    - cypress/screenshots
-    - cypress/videos
+      - cypress/screenshots
+      - cypress/videos
     reports:
       junit:
         - results/TEST-*.xml

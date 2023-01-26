@@ -38,8 +38,8 @@ const Spin: React.FC<SpinProps> = ({
 						<Loader className={`${spinSizes[size]}`} />
 					</div>
 				</div>
-			)}{' '}
-			<div className={`${loading && blur ? 'blur-xs' : ''}`}>{children} </div>{' '}
+			)}
+			<div className={`${loading && blur ? 'blur-xs' : ''}`}>{children} </div>
 		</div>
 	)
 }

@@ -7,7 +7,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
   - plugin:react-hooks/recommended
-overrides: [ ]
+overrides: []
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
@@ -35,5 +35,5 @@ rules:
 
   simple-import-sort/imports: error
   simple-import-sort/exports: error
-  "@typescript-eslint/no-namespace": off
-  react/react-in-jsx-scope: "off"
+  '@typescript-eslint/no-namespace': off
+  react/react-in-jsx-scope: 'off'
