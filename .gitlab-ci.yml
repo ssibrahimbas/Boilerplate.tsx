@@ -70,6 +70,7 @@ cypress-component:
   image: cypress/base:10
   stage: test
   script:
+    - $(npm bin)cypress cache clear
     - $(npm bin)/cypress run --config video=false --component
   artifacts:
     expire_in: 1 week
