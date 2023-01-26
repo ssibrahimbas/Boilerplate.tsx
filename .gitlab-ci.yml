@@ -4,12 +4,15 @@ stages:
   - test
 
 variables:
-  npm_config_cache: '$CI_PROJECT_DIR/.npm'
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .npm
+    - cache/Cypress
     - node_modules
 
 lint:
@@ -39,6 +42,7 @@ cypress-component:
     expire_in: 1 week
     when: always
     paths:
+      - cypress/screenshots
       - cypress/screenshots
     reports:
       junit:
