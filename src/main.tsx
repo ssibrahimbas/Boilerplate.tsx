@@ -1,5 +1,5 @@
-import './index.css'
 import '~plugins/i18n/i18n'
+import './index.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
