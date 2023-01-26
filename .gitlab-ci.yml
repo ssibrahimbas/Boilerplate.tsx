@@ -15,11 +15,6 @@ cache:
 lint:
   stage: clean
   image: node:latest
-  cache:
-    key: '$CI_COMMIT_REF_SLUG'
-    paths:
-      - node_modules/
-      - .eslintrc.yml
   script:
     - npm install
     - npm run lint:check
@@ -34,41 +29,10 @@ install:
     - $(npm bin)/cypress cache list
     - $(npm bin)/cypress verify
 
-# cypress-e2e:
-#   image: cypress/base:10
-#   stage: test
-#   script:
-#     - $(npm bin)/cypress run
-#   artifacts:
-#     expire_in: 1 week
-#     when: always
-#     paths:
-#       - cypress/screenshots
-#       - cypress/videos
-#     reports:
-#       junit:
-#         - results/TEST-*.xml
-
-# cypress-e2e-chrome:
-#   image: cypress/browsers:chrome67
-#   stage: test
-#   script:
-#     - $(npm bin)/cypress run --browser chrome
-#   artifacts:
-#     expire_in: 1 week
-#     when: always
-#     paths:
-#       - cypress/screenshots
-#       - cypress/videos
-#     reports:
-#       junit:
-#         - results/TEST-*.xml
-
 cypress-component:
   image: cypress/base:10
   stage: test
   script:
-    - $(npm bin)cypress cache clear
     - $(npm bin)/cypress run --config video=false --component
   artifacts:
     expire_in: 1 week
