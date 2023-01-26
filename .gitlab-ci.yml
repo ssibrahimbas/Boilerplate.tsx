@@ -24,6 +24,7 @@ install:
   stage: build
 
   script:
+    - if [ -f package-lock.json ]; then npm ci; else npm install; fi
     - npm ci
     - $(npm bin)/cypress cache path
     - $(npm bin)/cypress cache list
