@@ -75,7 +75,6 @@ cypress-component:
     when: always
     paths:
       - cypress/screenshots
-      - cypress/videos
     reports:
       junit:
         - results/TEST-*.xml
