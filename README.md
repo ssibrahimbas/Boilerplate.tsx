@@ -1,5 +1,5 @@
-## CleanBoilerplate.tsx
+# CleanBoilerplate.tsx
 
 A boilerplate for React + TS.
 
-Live url: https://cleanboilerplate-tsx.pages.dev/
+Live url: <https://cleanboilerplate-tsx.pages.dev/>
