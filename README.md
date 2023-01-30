@@ -1,5 +1,3 @@
-## CleanBoilerplate.tsx
+#  This repo migrated to [Mix Architecture](https://github.com/mixarchitecture) organization.
 
-A boilerplate for React + TS.
-
-Live url: https://cleanboilerplate-tsx.pages.dev/
+[Click to go live repo.](https://github.com/mixarchitecture/frontend)
